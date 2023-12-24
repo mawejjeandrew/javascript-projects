@@ -2,54 +2,56 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <title>Random Password Generator -</title>
+    <title>Login And Registration Form</title>
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <div class="container">
-      <h1> Generate a <br> <span>Random Password</span> </h1>
-      <div class="display">
-        <input type="text" id="password" placeholder="Password"> 
-        <img src="copy.png" onclick="copyPassword()">
-      
+    <div class="hero">
+      <div class="form-box">
+        <div class="button-box">
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+          <button type="button" class="toggle-btn" onclick="register()">Regisiter</button>
+        </div>
+        <div class="social-icons">
+          <img src="facebook.png">
+          <img src="twitter.png">
+          <img src="google.png">
+        </div>
+        <form  id="login" class="input-group">
+          <input type="text" class="input-field" placeholder="User Id" required>
+          <input type="text" class="input-field" placeholder=" Enter Password" required>
+          <input type="checkbox" class="chech-box"><span>Remember Password</span>
+          <button type="submit" class="submit-btn">Login</button>
+           
+        </form>
+        <form id="register" class="input-group">
+          <input type="text" class="input-field" placeholder="User Id" required>
+          <input type="email" class="input-field" placeholder="Email Id" required>
+          <input type="text" class="input-field" placeholder=" Enter Password" required>
+          <input type="checkbox" class="chech-box"><span>I agree to terms & conditions</span>
+          <button type="submit" class="submit-btn">Regisiter</button>
+           
+        </form>
       </div>
-      <button onclick="createPassword()"><img src="generate.png" alt="">  Generate Password</button>
     </div>
+
 
     <script>
 
-      const passwordBox = document.getElementById("password");
-      const length = 12; 
+      var x = document.getElementById("login");
+      var y = document.getElementById("register");
+      var z = document.getElementById("btn");
 
-      const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-      const number = "0123456789";
-      const symbol ="@#$%^&*()_+?/=-";
-
-      const allChars = upperCase + lowerCase + number + symbol;
-
-      function createPassword() {
-        let password = "";
-        password += upperCase[Math.floor(Math.random() * upperCase.length)];
-        password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-        password += number[Math.floor(Math.random() * number.length)];
-        password += symbol[Math.floor(Math.random() * symbol.length)];
-
-        while(length > password.length){
-          password += allChars[Math.floor(Math.random() * allChars.length)];
-
-        }
-        passwordBox.value = password;
-
+      function register(){
+        x.style.left ="-400px";
+        y.style.left = "50px";
+        z.style.left ="110px";
       }
-
-      function copyPassword(){
-        passwordBox.select();
-        document.execCommand("copy");
-     }
-  
-
-
+      function login(){
+        x.style.left ="50px";
+        y.style.left = "450px";
+        z.style.left ="0px";
+      }
     </script>
   </body>
-</html>
